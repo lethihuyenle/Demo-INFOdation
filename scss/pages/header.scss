@@ -1,0 +1,172 @@
+@import "../helpers/mixins";
+@import "../helpers/variables";
+body{
+	font-family: 'Raleway', 'Arial', sans-serif;
+	section.header{
+		.menu-main{
+			width: 100%;
+			position: absolute;
+			z-index: 1;
+			.container{max-width: 1140px;padding-top: 20px;
+				.menu-main-top{
+					> a{  
+						position: relative;
+						width: 40%;
+						float: left;
+						height: 75px;
+						color: white;
+						font-size: 1.4em;
+						left: 60px;
+						&:hover{
+							text-decoration: none;
+						}
+					}// a(villareal)
+					ul {width: 60%;float: right;
+					> li{ 
+							display: inline-table;
+							padding:0px 20px 0px 20px;
+							position: relative;
+							z-index: 2;
+							a{
+								text-transform: uppercase;
+								color:white;
+								&:hover{
+									text-decoration: none;
+								}
+							}
+							ul.sub-menu{
+								display: none;
+								position: absolute;
+								top:30px;
+								left: 0px;
+								width: 250px;
+								// box-sizing:border-box;
+								background-color:white;
+								padding-left: 0px;
+								clear: both;
+								&::before{
+									@include before-submenu-right-mixin(15px);
+								}						
+								li{
+									width: 250px;
+									height: 43px;
+									border-bottom: 1px solid #cccccc;
+									padding: 10px 0px 0px 20px;
+								> a{
+									color:black;
+									text-transform: capitalize;
+									&:hover{
+										color: $background-color-xanh;
+									}
+								}
+								}
+								li.home{position: relative;}
+							}//end ul-sub
+							&:hover ul.sub-menu{
+								display: block;
+								// z-index: 10;
+								// position: relative;
+							}
+						}//end li
+					}//end ul
+				}//end menu-main-top
+				.menu-main-bottom{
+					z-index: 1;
+					position: relative;
+					button.header-logo{
+						position: absolute;
+						left: 910px;
+						top:30px;
+						border:0px;
+						padding:6px 17px 6px 17px;
+						background-color: $background-color-xanh;
+						color: white;
+						text-transform: capitalize;
+						.fa.fa-upload{
+							padding-right: 10px;
+						}
+					}
+				}
+			}
+		}//end menu-
+		
+		.carousel-header{
+			.customizer {
+				position: fixed;
+				bottom: 300px;
+				color: white;
+				background-color:$background-color-xam;
+				transform: rotate(-90deg);
+				left: -47px;
+				z-index: 5;
+				padding:6px 10px 6px 10px;
+				.fa.fa-cog{padding-right: 10px;}
+			}
+		}//end carousel-header
+
+		.menu-main-top > ul > li:before:hover ul.sub-menu{display: block;}
+		//end menu
+
+		.imformation{
+			p{
+			text-align: center;
+			background-color: $background-color-xanh;
+			padding:25px 0px 25px 0px;
+			color:white;
+			margin-bottom: 0px;
+			i{padding-right: 10px;}
+			}
+		}//end imformation
+
+	   //css pseudo-class menu
+		.menu-main-top > ul > li:nth-child(1):before {
+			@include before-menu-right-mixin(80px);
+			// left: 80px;
+		}
+		.menu-main-top > ul > li:nth-child(2):before {
+			@include before-menu-right-mixin(125px);
+			// left: 125px;
+		}
+		.menu-main-top > ul > li:nth-child(3):before {
+			@include before-menu-right-mixin(82px);
+			// left: 82px;
+		}
+		.menu-main-top > ul > li:nth-child(4):before {
+			@include before-menu-right-mixin(82px);
+			// left: 82px;
+		}
+		.menu-main-top > ul > li:nth-child(5):before {
+			@include before-menu-right-mixin(76px);
+			// left:76px;
+		}
+		.menu-main-top > ul > li:nth-child(6):before {
+			@include before-menu-right-mixin(86px);
+			// left: 86px;
+		}
+		.menu-main-top > ul >li.home:after{
+			position: absolute;
+			content: '';
+			width: 57px;
+			height: 3px;
+			background-color: $background-color-xanh; 
+			bottom:37px;
+		}
+		.menu-main-top > a:before{
+			position: absolute;
+			content: '';
+			height: 24px;
+			width: 24px;
+			transform: rotate(45deg);
+			background-color: $background-color-xanh;
+			left: -56px;
+			opacity: 0.7;
+		}
+		.menu-main-top > a:after{
+			@include before-menu-left-mixin(-40px);
+			// left: -40px;
+
+		}
+	   // end css pseudo class menu.
+	   
+	}//end section.header
+}//end body

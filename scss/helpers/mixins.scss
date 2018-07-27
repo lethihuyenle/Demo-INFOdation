@@ -1,0 +1,248 @@
+//section.header
+@mixin before-menu-right-mixin($left){
+    content: "\f0d7";
+    font-family: FontAwesome;
+    color:white;
+    font-size: 18px;
+    position: absolute;
+    top: -2px;
+    left: $left;
+}
+@mixin before-submenu-right-mixin($left){
+    content: "\f0d8";
+    font-family: FontAwesome;
+    color:white;
+    font-size: 21px;
+    position: absolute;
+    top: -20px;
+    left: $left;
+}
+@mixin before-menu-left-mixin($left){
+    position: absolute;
+    content: '';
+    height: 24px;
+    width: 24px;
+    transform: rotate(45deg);
+    background-color: $background-color-xanh;
+    left: $left;
+    opacity: 0.7;
+}
+
+//section.content
+  //row1 li
+@mixin row1-li-mixin{
+    position: absolute;
+    content: '/';
+    color: #DEDEDE;
+    right: -20px;
+    bottom: 7px; 
+    font-size: 1.3em;
+}
+@mixin footer-li-mixin{
+    position: absolute;
+    content: '/';
+    color: #DEDEDE;
+    right: -23px;
+    bottom: 1px; 
+    font-size: 0.9em;
+}
+//row-catelogies (background)
+@mixin background-image-mixin($height){
+    height: $height;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // margin-bottom: $margin-bottom;
+    @content;
+  }
+ 
+@mixin listing-box-title-mixin{
+    padding: 14px 20px;
+    color: white;
+    h2 {
+        margin: 0px;
+        font-size: 1.25em;
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+    }
+    h3 {
+        margin: 7px 0px 0px 0px;
+        font-size: 1.1em;
+    }
+    @content;
+}
+@mixin listing-box-content-mixin{
+    height: 130px;
+    padding: 20px;
+    background-color: white;
+    dl {
+        dt {
+            float: right;
+            clear: right;
+        }
+        dd {
+            float: left;
+            clear: left;
+        }
+    }
+}
+@mixin listing-box-mixin{
+    margin-bottom: 30px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    &:hover{
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+        .listing-box-title{
+            background-color: $background-color-xanh;
+        }
+        .listing-box-image-links{
+            opacity: 1!important;
+            
+        }
+    }
+    .listing-box-image{
+        @include background-image-mixin(160px);
+        position: relative;
+        border-radius: 3px;
+        .listing-box-image-label{
+            position: absolute;
+            z-index: 1;
+            background-color: $background-color-xanh;
+            color: white;
+            text-transform: uppercase;
+            font-size: .80em;
+            font-weight: 700;
+            padding: 4px 12px;
+            left: 20px;
+            top: 20px;     
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);                 
+        }
+        .listing-box-image-links{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            color: white;
+            z-index:2;
+            opacity: 0;
+            transition: opacity .30s linear;
+            a{
+                display: flex;
+                align-items: center;
+                height: calc(100% / 3);
+                font-size: .95em;
+                font-weight: 599;
+                padding-left: 20px;
+                i{
+                    font-size: 1.2em;
+                    width: 30px;
+                }
+                &:hover{
+                    text-decoration: none;
+                    color:white;
+                }
+                &:nth-child(1) {
+                        background-color: rgba(7, 111, 100, 0.9);
+                        &:hover {
+                            background-color: #08877a;
+                        }
+                }
+                &:nth-child(2) {
+                        background-color: rgba(8, 135, 122, 0.9);
+                        &:hover {
+                            background-color: #08877a;
+                        }
+                }
+                &:nth-child(3) {
+                        background-color: rgba(10, 159, 143, 0.9);
+                        &:hover {
+                            background-color: #0a9f8f;
+                        }
+                }
+            }
+        }
+    }
+    .listing-box-title{
+        @include listing-box-title-mixin
+        {
+            background-color:$background-color-xam;
+        };
+    }
+    .listing-box-content{
+        @include listing-box-content-mixin;
+    }
+}
+// div.catelogies
+@mixin category-mixin{
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 3px;
+    @include background-image-mixin(220px){
+        margin-bottom: 30px;
+    };
+    text-align: center;
+    position: relative;
+    &:hover {
+        .btn-primary{
+        visibility: visible!important;
+        opacity: 1 !important;
+        }
+        .category-content{
+            top:35% !important;
+        }
+    } 
+    .category-link {
+        color: white;  
+        background-color: rgba(0, 0, 0, 0.35);
+        border-radius: 3px;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: background-color 5s linear;                         
+        &:hover {
+            text-decoration-line: none;
+            color: white;
+        }
+       
+        .category-content {
+            left: 65px;
+            position: absolute;
+            top:40%;
+            transition: all .30s linear;                                    
+            span {
+                display: block;
+            }
+            .category-title {
+                font-size: 1.5em;
+                font-weight: 599;
+            }
+            .category-subtitle {
+                font-size: 1.1em;
+                margin: 0px;
+            }
+            .btn-primary {
+                border-color:$background-color-xanh;
+                border-radius: 0;
+                font-size: .9em;
+                background-color: $background-color-xanh;
+                width: 40%;
+                margin: 0 auto;
+                margin-top: 15px;
+                visibility: hidden;
+                opacity: 0;
+                transition: all .15s linear;
+            }
+        }
+    }
+}
+//mixin carousel-footer
+@mixin carousel-control-fa-mixin{
+    height: 34px;
+    width: 34px;
+    background-color: white;
+    line-height: 34px;
+    color: black;
+    font-size: 10px;
+    margin-top: 180px;
+    @content;
+}

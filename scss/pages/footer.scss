@@ -1,0 +1,101 @@
+@import "../helpers/mixins";
+@import "../helpers/variables";
+footer{
+	.footer.top{
+		color: white;
+		padding: 20px 0px;
+		background-color: $background-color-xam;
+		.footer.top.left{
+			float: left;
+			width: 48%;
+			h2{
+				font-size: 1.5em;
+				font-weight: 400;
+				margin: 0 0 30px 0;
+			}
+			p{
+			color: rgba(255, 255, 255, 0.6);
+			font-size: .95em;
+			}
+			.social{
+				a{margin-right: 10px;}
+				i{
+					height: 40px;
+					width: 40px;
+					background-color: #524e4e;
+					line-height: 40px;
+					text-align: center;
+					border-radius: 50%;
+					color: white;
+				&:hover{
+					background-color: $background-color-xanh;
+				}
+				}
+
+
+			}
+		}//end footer top left
+		.footer.top.right{
+			float: right;
+			width: 48%;
+			h2{
+				font-size: 1.5em;
+				margin-bottom: 30px;
+				font-weight: 400;
+			}
+			form{
+				margin-bottom: 20px;
+			}
+			p{
+				margin-bottom: 20px;
+				color: rgba(255, 255, 255, 0.6);
+				font-size: .95em;
+			}
+			.input-group{
+				// margin-left: 16px;
+				// width: 532px;
+				height: 41px;
+				border-collapse: separate;
+				input{
+					background-color: #575454;
+					height: 41px;
+					border:0px;
+					color: white;
+				}
+				.input-group-addon{
+					padding: 6px 17px;
+					background-color: $background-color-xanh;
+					color: white;
+					border:0px;
+				}
+			}
+		}//end footer top right
+	}//end footer top.
+
+	.footer.bottom{
+		padding: 25px 0px;
+		background-color: $background-color-xam;
+		color:white;
+		opacity: 0.97;
+		height: 70px;
+		.bottom.left{
+		float: left;
+		}
+		.bottom.right{
+		float: right;
+		ul{
+			li{
+				display: inline-table;
+				padding-left: 35px;
+				position: relative;
+			}
+			li:nth-child(1)::before{
+				@include footer-li-mixin;
+				}
+			li:nth-child(2)::before{
+					@include footer-li-mixin;
+				}
+		}
+		}
+	}//end footer bottom.
+}
